@@ -169,7 +169,8 @@ public class PushPlugin extends CordovaPlugin implements PushConstants {
 
             Log.v(LOG_TAG, "execute: jo=" + jo.toString());
 
-            senderID = getStringResourceByName(GCM_DEFAULT_SENDER_ID);
+            // Fix error where senderID is not found
+            senderID = jo.getString("senderID");
 
             Log.v(LOG_TAG, "execute: senderID=" + senderID);
 
